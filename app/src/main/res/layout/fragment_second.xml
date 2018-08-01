@@ -34,4 +34,13 @@
         android:layout_marginBottom="155dp"
         android:text="Avanzar" />
 
+    <ImageButton
+        android:id="@+id/AFNext2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:src="@drawable/arrowright" />
+
 </RelativeLayout>

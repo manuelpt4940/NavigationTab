@@ -38,12 +38,18 @@ public class AF_FirstFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_first, container, false);
 
-
+        AFNext1 = (ImageButton) view.findViewById(R.id.AFNext1);
+        AFNext1.setVisibility(view.INVISIBLE);
+        //AFNext1.setEnabled(false);
         AFAvanzar1 = (Button) view.findViewById(R.id.AFAvanzar1);
         AFAvanzar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utilidades.AF_Avanzar_FirstFragment=true;
+                //AFNext1.setEnabled(Utilidades.AF_Avanzar_FirstFragment);
+                if (Utilidades.AF_Avanzar_FirstFragment) {
+                    AFNext1.setVisibility(v.VISIBLE);
+                }
                 AFAvanzar1.setText("OKA");
 
 
@@ -51,7 +57,7 @@ public class AF_FirstFragment extends Fragment {
             }
         });
 
-        AFNext1 = (ImageButton) view.findViewById(R.id.AFNext1);
+
         AFNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
