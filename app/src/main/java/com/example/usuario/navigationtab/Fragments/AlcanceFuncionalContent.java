@@ -54,7 +54,6 @@ public class AlcanceFuncionalContent extends Fragment {
             viewPager.setOffscreenPageLimit(3); // Evitar que se reinicie el fragment cuando paso del 1 al 3 y viceversa
 
 
-
             llenarViewPager(viewPager);
 
 
@@ -81,6 +80,7 @@ public class AlcanceFuncionalContent extends Fragment {
         return vista;
     }
 
+
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -89,6 +89,7 @@ public class AlcanceFuncionalContent extends Fragment {
         } else{
             if (Utilidades.PestanaAlcanceFuncional) {
                 appBar.addView(pestanas);
+                saltoTabs(0);
             }
         }
     }

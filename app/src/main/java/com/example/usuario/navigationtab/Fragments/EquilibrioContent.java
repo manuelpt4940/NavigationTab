@@ -47,6 +47,7 @@ public class EquilibrioContent extends Fragment {
             viewPager = vista.findViewById(R.id.idViewPagerEquilibrio);
             viewPager.setOffscreenPageLimit(3); // Evitar que se reinicie el fragment cuando paso del 1 al 3 y viceversa
             llenarViewPager(viewPager);
+            //saltoTabs(2);
 
             viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
@@ -80,10 +81,14 @@ public class EquilibrioContent extends Fragment {
         } else{
             if (Utilidades.PestanaEquilibrio) {
                 appBar.addView(pestanas);
+                saltoTabs(0);
             }
         }
     }
 
+    public void saltoTabs(int tab){
+        pestanas.getTabAt(tab).select();
+    }
 
     private void llenarViewPager(ViewPager viewPager) {
         SeccionesAdapter adapter = new SeccionesAdapter(getFragmentManager());

@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity
 
         android.support.v4.app.Fragment fragment = null;
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        //This is to create a tag from EquilibrioContent to use the jump tabs
+        //fragmentManager.beginTransaction().add(R.id.contenedor, new EquilibrioContent(), "Equilibrio").commit();
+        //fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("Equilibrio")).commit();
+
         fragmentManager.beginTransaction().add(R.id.contenedor, new AlcanceFuncionalContent(), "Alcance").commit();
 
 
@@ -79,6 +83,12 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getSupportFragmentManager();
         AlcanceFuncionalContent fragment = (AlcanceFuncionalContent) fm.findFragmentByTag("Alcance");
         fragment.saltoTabs(tab);
+    }
+
+    public void saltoTabsEquilibrio(int tab){
+        FragmentManager fms = getSupportFragmentManager();
+        EquilibrioContent fragments = (EquilibrioContent) fms.findFragmentByTag("Equilibrio");
+        fragments.saltoTabs(tab);
     }
 
     @Override
