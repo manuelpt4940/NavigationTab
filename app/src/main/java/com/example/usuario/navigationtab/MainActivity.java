@@ -1,9 +1,13 @@
 package com.example.usuario.navigationtab;
 
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +24,7 @@ import com.example.usuario.navigationtab.Fragments.AF_FirstFragment;
 import com.example.usuario.navigationtab.Fragments.AF_SecondFragment;
 import com.example.usuario.navigationtab.Fragments.AF_ThirdFragment;
 import com.example.usuario.navigationtab.Fragments.EquilibrioContent;
+import com.example.usuario.navigationtab.Fragments.EstadoFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AF_FirstFragment.OnFragmentInteractionListener, AF_SecondFragment.OnFragmentInteractionListener,
@@ -148,6 +153,9 @@ public class MainActivity extends AppCompatActivity
                 if (fragmentManager.findFragmentByTag("Equilibrio") != null){
                     fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("Equilibrio")).commit();
                 }
+                if (fragmentManager.findFragmentByTag("Estado") != null){
+                    fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("Estado")).commit();
+                }
                 break;
             case R.id.nav_gallery:
                 if (fragmentManager.findFragmentByTag("Equilibrio") != null) {
@@ -158,9 +166,23 @@ public class MainActivity extends AppCompatActivity
                 if (fragmentManager.findFragmentByTag("Alcance") != null){
                     fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("Alcance")).commit();
                 }
+                if (fragmentManager.findFragmentByTag("Estado") != null){
+                    fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("Estado")).commit();
+                }
                 //fragment = new Second();
                 break;
             case R.id.nav_manage:
+                if (fragmentManager.findFragmentByTag("Estado") != null) {
+                    fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("Estado")).commit();
+                }else{
+                    fragmentManager.beginTransaction().add(R.id.contenedor, new EstadoFragment(), "Estado").commit();
+                }
+                if (fragmentManager.findFragmentByTag("Alcance") != null){
+                    fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("Alcance")).commit();
+                }
+                if (fragmentManager.findFragmentByTag("Equilibrio") != null){
+                    fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("Equilibrio")).commit();
+                }
                  /*if (fragmentManager.findFragmentByTag("Third") != null) {
                 fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("Third")).commit();
             }else{
@@ -189,5 +211,7 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
 
 }

@@ -69,6 +69,8 @@ public class EquilibrioContent extends Fragment {
         }
         //Utilidades.rotacion=1;
 
+
+
         return vista;
     }
 
@@ -98,4 +100,5 @@ public class EquilibrioContent extends Fragment {
 
         viewPager.setAdapter(adapter);
     }
+
 }
