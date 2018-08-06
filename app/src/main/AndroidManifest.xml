@@ -11,10 +11,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTop"> //**Code to avoid reload navigationdrawer with backbutton**//>
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            //**Code to avoid reload navigationdrawer with backbutton**//>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +25,15 @@
         <activity
             android:name=".Fragments.EstadoSubActivity1"
             android:label="@string/title_activity_estado_sub1"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.usuario.navigationtab.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Fragments.EstadoSubActivity2"
+            android:label="@string/title_activity_estado_sub2"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

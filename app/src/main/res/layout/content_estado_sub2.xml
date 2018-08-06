@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Fragments.EstadoSubActivity1"
-    tools:showIn="@layout/activity_estado_sub1">
-
+    tools:context=".Fragments.EstadoSubActivity2"
+    tools:showIn="@layout/activity_estado_sub2">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,13 +17,4 @@
         android:layout_marginTop="185dp"
         android:text="Subactivity"
         android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="196dp"
-        android:text="New SubActivity" />
 </RelativeLayout>
