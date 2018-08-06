@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.usuario.navigationtab.MainActivity;
 import com.example.usuario.navigationtab.R;
 
 public class EstadoSubActivity1 extends AppCompatActivity {
@@ -39,4 +40,8 @@ public class EstadoSubActivity1 extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
