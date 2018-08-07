@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.usuario.navigationtab.Clases.Utilidades;
 import com.example.usuario.navigationtab.Fragments.AlcanceFuncionalContent;
@@ -100,9 +101,30 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
+            Toast.makeText(this, "cerrar", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            AlertDialog.Builder alert_Exit = new AlertDialog.Builder(this);
+            alert_Exit.setMessage("Do you want Close ESPPB+?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //super.onBackPressed();
+                            //finish();
+                            //MainActivity.this.onSuperBackPressed(), where this method have super.onBackPressed()
+                            MainActivity.this.finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = alert_Exit.create();
+            alert.setTitle("ALERT!");
+            alert.show();
         }
     }
 
