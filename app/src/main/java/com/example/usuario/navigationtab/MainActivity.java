@@ -1,6 +1,7 @@
 package com.example.usuario.navigationtab;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -112,8 +113,11 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int which) {
                             //super.onBackPressed();
                             //finish();
-                            //MainActivity.this.onSuperBackPressed(), where this method have super.onBackPressed()
-                            MainActivity.this.finish();
+                            //MainActivity.this.onSuperBackPressed(); // where this method have super.onBackPressed()
+                            startActivity(new Intent(MainActivity.this, Devices.class));
+                                //draw.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); this code in Intent Devices.class to avoid reload mainactivity
+                            //MainActivity.this.finish();
+
                         }
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -126,6 +130,15 @@ public class MainActivity extends AppCompatActivity
             alert.setTitle("ALERT!");
             alert.show();
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    private void onSuperBackPressed(){
+        super.onBackPressed();
     }
 
     @Override

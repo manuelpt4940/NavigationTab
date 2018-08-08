@@ -18,6 +18,7 @@ public class Devices extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent draw = new Intent(Devices.this, MainActivity.class);
+                draw.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(draw);
 
             }
