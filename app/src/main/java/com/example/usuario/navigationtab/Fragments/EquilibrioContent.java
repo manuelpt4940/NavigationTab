@@ -36,8 +36,8 @@ public class EquilibrioContent extends Fragment {
         // Inflate the layout for this fragment
 
 
-
         View parent = (View) container.getParent();
+        getActivity().setTitle("Equilibrio");  //Change Title in each section of Navigation Drawer
         if (appBar == null) {
             appBar = (AppBarLayout) parent.findViewById(R.id.appBar);
             pestanas = new TabLayout(getActivity());
@@ -81,12 +81,14 @@ public class EquilibrioContent extends Fragment {
         if (hidden){
             appBar.removeView(pestanas);
         } else{
+            getActivity().setTitle("Equilibrio");  //Change Title in each section of Navigation Drawer
             if (Utilidades.PestanaEquilibrio) {
                 appBar.addView(pestanas);
                 saltoTabs(0);
             }
         }
     }
+
 
     public void saltoTabs(int tab){
         pestanas.getTabAt(tab).select();

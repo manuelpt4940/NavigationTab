@@ -27,6 +27,7 @@ public class EstadoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_estado, container, false);
+        getActivity().setTitle("Estado");  //Change Title in each section of Navigation Drawer
         Button B_sig = (Button) view.findViewById(R.id.B_sig);
         B_sig.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,4 +41,11 @@ public class EstadoFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if(!hidden){
+            getActivity().setTitle("Estado");  //Change Title in each section of Navigation Drawer
+        }
+    }
 }

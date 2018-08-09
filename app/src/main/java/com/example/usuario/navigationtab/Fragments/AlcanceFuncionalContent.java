@@ -40,8 +40,8 @@ public class AlcanceFuncionalContent extends Fragment {
         // Inflate the layout for this fragment
 
 
-
         View parent = (View) container.getParent();
+        getActivity().setTitle("Alcance Funcional");  //Change Title in each section of Navigation Drawer
         if (appBar == null) {
             appBar = (AppBarLayout) parent.findViewById(R.id.appBar);
             pestanas = new TabLayout(getActivity());
@@ -87,6 +87,7 @@ public class AlcanceFuncionalContent extends Fragment {
         if (hidden){
             appBar.removeView(pestanas);
         } else{
+            getActivity().setTitle("Alcance Funcional");  //Change Title in each section of Navigation Drawer
             if (Utilidades.PestanaAlcanceFuncional) {
                 appBar.addView(pestanas);
                 saltoTabs(0);
