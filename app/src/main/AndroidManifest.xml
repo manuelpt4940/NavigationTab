@@ -16,7 +16,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             //**Code to avoid reload navigationdrawer with backbutton**//>
-
         </activity>
         <activity
             android:name=".Fragments.EstadoSubActivity1"
@@ -42,6 +41,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Fragments.AF_Help"
+            android:label="@string/title_activity_af__help"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.usuario.navigationtab.MainActivity" />
         </activity>
     </application>
 

@@ -1,9 +1,12 @@
 package com.example.usuario.navigationtab.Fragments;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -41,6 +44,20 @@ public class AlcanceFuncionalContent extends Fragment {
 
 
         View parent = (View) container.getParent();
+
+        //Code to make something when I press FAB
+        FloatingActionButton fab = (FloatingActionButton) vista.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getActivity(),AF_Help.class);
+                in.putExtra("Ayuda","Bienvenido a la ayuda de Alcance Funcional");
+                startActivity(in);
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //       .setAction("Action", null).show();
+            }
+        });
+
         getActivity().setTitle("Alcance Funcional");  //Change Title in each section of Navigation Drawer
         if (appBar == null) {
             appBar = (AppBarLayout) parent.findViewById(R.id.appBar);
