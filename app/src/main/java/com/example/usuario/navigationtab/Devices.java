@@ -21,8 +21,6 @@ public class Devices extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Reload Variables in utilidades
-
 
         setContentView(R.layout.activity_devices);
         Button B_nav = (Button) findViewById(R.id.B_nav);

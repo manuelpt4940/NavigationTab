@@ -3,6 +3,7 @@ package com.example.usuario.navigationtab.Fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -56,6 +57,9 @@ public class AF_FirstFragment extends Fragment {
         ImButton = view.findViewById(R.id.imButton);
         TV = view.findViewById(R.id.TV);
 
+
+
+
         ImButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,13 +94,38 @@ public class AF_FirstFragment extends Fragment {
         AFAvanzar1 = (Button) view.findViewById(R.id.AFAvanzar1);
         AFAvanzar1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Utilidades.AF_Avanzar_FirstFragment=true;
-                //AFNext1.setEnabled(Utilidades.AF_Avanzar_FirstFragment);
-                if (Utilidades.AF_Avanzar_FirstFragment) {
-                    AFNext1.setVisibility(v.VISIBLE);
-                }
-                AFAvanzar1.setText("OKA");
+            public void onClick(final View v) {
+                final ProgressDialog progressBar = new ProgressDialog(getActivity());
+                progressBar.setIcon(R.drawable.ic_menu_share);
+                progressBar.setCancelable(false);
+                progressBar.show();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Code that takes a long time
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //Code when a long time code is finished
+                                progressBar.dismiss();
+                                Utilidades.AF_Avanzar_FirstFragment=true;
+                                //AFNext1.setEnabled(Utilidades.AF_Avanzar_FirstFragment);
+                                if (Utilidades.AF_Avanzar_FirstFragment) {
+                                    AFNext1.setVisibility(v.VISIBLE);
+                                }
+                                AFAvanzar1.setText("OKA");
+                            }
+                        });
+
+                    }
+                }).start();
+
 
             }
         });
