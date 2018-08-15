@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             AlertDialog.Builder alert_Exit = new AlertDialog.Builder(this);
-            alert_Exit.setMessage("Do you want Close ESPPB+?")
+            alert_Exit.setMessage("Do you want to disconnect with ESPPB+?")
                     .setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override

@@ -43,6 +43,7 @@ public class AF_ThirdFragment extends Fragment {
             public void onClick(View v) {
                 Utilidades.AF_Avanzar_ThirdFragment=true;
                 Utilidades.HabilitacionEQ = true;
+                ((MainActivity) getActivity()).refreshMenu(); //We call method to refresh the Gallery item
                 if (Utilidades.AF_Avanzar_ThirdFragment) {
                     AFNext3.setVisibility(v.VISIBLE);
                 }
@@ -53,7 +54,7 @@ public class AF_ThirdFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                ((MainActivity) getActivity()).refreshMenu(); //We call method to refresh the Gallery item
+
                 ((MainActivity) getActivity()).displaySelectedScreen(R.id.nav_gallery);  //Code to change fragment Gallery
 
                 //Code to select item in the menu
