@@ -120,6 +120,7 @@ public class AF_FirstFragment extends Fragment {
                                     AFNext1.setVisibility(v.VISIBLE);
                                 }
                                 AFAvanzar1.setText("OKA");
+                                ((MainActivity)getActivity()).enableTabsAlcance(1);
                             }
                         });
 
@@ -149,3 +150,4 @@ public class AF_FirstFragment extends Fragment {
     public interface OnFragmentInteractionListener {
     }
 }
+
