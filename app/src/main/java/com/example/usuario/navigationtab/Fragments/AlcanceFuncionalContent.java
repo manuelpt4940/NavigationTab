@@ -55,6 +55,7 @@ public class AlcanceFuncionalContent extends Fragment {
                 startActivity(in);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //       .setAction("Action", null).show();
+
             }
         });
 
@@ -91,8 +92,11 @@ public class AlcanceFuncionalContent extends Fragment {
                 }
             });
             pestanas.setupWithViewPager(viewPager);
+
+
         }
         //Utilidades.rotacion=1;
+        disableTabs();
 
         return vista;
     }
@@ -125,6 +129,21 @@ public class AlcanceFuncionalContent extends Fragment {
 
 
         viewPager.setAdapter(adapter);
+    }
+    public void enableTabs(int limit){
+        LinearLayout tabStrip = ((LinearLayout)pestanas.getChildAt(0));
+        tabStrip.setEnabled(true);
+        for(int i = 0; i<=limit; i++ ) {
+            tabStrip.getChildAt(i).setClickable(true);
+        }
+    }
+    public void disableTabs(){
+        //Disable click
+        LinearLayout tabStrip = ((LinearLayout)pestanas.getChildAt(0));
+        tabStrip.setEnabled(false);
+        for(int i = 0; i < tabStrip.getChildCount(); i++) {
+            tabStrip.getChildAt(i).setClickable(false);
+        }
     }
 
     public interface OnFragmentInteractionListener {

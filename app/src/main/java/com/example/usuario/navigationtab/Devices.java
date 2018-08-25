@@ -39,7 +39,7 @@ public class Devices extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         AlertDialog.Builder alert_Exit = new AlertDialog.Builder(this);
-        alert_Exit.setMessage("Do you want Close ESPPB+?")
+        alert_Exit.setMessage("Do you want to Close ESPPB+?")
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)

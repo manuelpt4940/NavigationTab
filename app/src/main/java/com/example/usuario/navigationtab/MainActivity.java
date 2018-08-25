@@ -1,5 +1,6 @@
 package com.example.usuario.navigationtab;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -97,6 +99,12 @@ public class MainActivity extends AppCompatActivity
         EquilibrioContent fragments = (EquilibrioContent) fms.findFragmentByTag("Equilibrio");
         fragments.saltoTabs(tab);
     }
+    public void enableTabsAlcance(int limite){
+        FragmentManager fm = getSupportFragmentManager();
+        AlcanceFuncionalContent fragment = (AlcanceFuncionalContent) fm.findFragmentByTag("Alcance");
+        fragment.enableTabs(limite);
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -153,7 +161,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.new_register) {
+            Toast.makeText(getApplicationContext(), "data: "
+                            +"Settings",
+                    Toast.LENGTH_SHORT).show();
             return true;
         }
 
