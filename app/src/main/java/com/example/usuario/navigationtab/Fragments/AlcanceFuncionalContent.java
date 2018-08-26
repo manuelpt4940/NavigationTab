@@ -1,6 +1,7 @@
 package com.example.usuario.navigationtab.Fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,6 +35,7 @@ public class AlcanceFuncionalContent extends Fragment {
 
     public AlcanceFuncionalContent() {
         // Required empty public constructor
+
     }
 
 
@@ -68,6 +71,11 @@ public class AlcanceFuncionalContent extends Fragment {
 
 
             Utilidades.PestanaAlcanceFuncional=true;
+
+            //Disable swipeable
+            CustomViewPager ViewPagerObj = (CustomViewPager)vista.findViewById(R.id.idViewPagerAlcance);
+            ViewPagerObj.setPagingEnabled(false);
+
             viewPager = vista.findViewById(R.id.idViewPagerAlcance);
             viewPager.setOffscreenPageLimit(3); // Evitar que se reinicie el fragment cuando paso del 1 al 3 y viceversa
 
@@ -97,7 +105,6 @@ public class AlcanceFuncionalContent extends Fragment {
         }
         //Utilidades.rotacion=1;
         disableTabs();
-
         return vista;
     }
 
@@ -149,3 +156,4 @@ public class AlcanceFuncionalContent extends Fragment {
     public interface OnFragmentInteractionListener {
     }
 }
+
